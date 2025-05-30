@@ -1,4 +1,4 @@
-name: Starbound Asset Packer
+name: Asset Packer
 description: Packs assets using asset_packer.exe
 
 inputs:
@@ -18,5 +18,5 @@ runs:
   using: "composite"
   steps:
     - run: |
-        .\tools\asset_packer.exe "${{ inputs.input }}" -c "${{ inputs.config }}" "${{ inputs.output }}"
+        & "${{ github.action_path }}\tools\asset_packer.exe" "${{ inputs.input }}" -c "${{ inputs.config }}" "${{ inputs.output }}"
       shell: pwsh
