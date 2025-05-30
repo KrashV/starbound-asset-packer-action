@@ -9,7 +9,7 @@ inputs:
   config:
     description: 'Config file'
     required: false
-    default: 'tools/packing.config'
+    default: ''
   output:
     description: 'Output file name'
     required: true
@@ -18,5 +18,6 @@ runs:
   using: "composite"
   steps:
     - run: |
-        & "${{ github.action_path }}\tools\asset_packer.exe" "${{ inputs.input }}" -c "${{ inputs.config }}" "${{ inputs.output }}"
+        $configPath = if ("${{ inputs.config }}") { "${{ inputs.config }}" } else { "${{ github.action_path }}\tools\packing.config" }
+        & "${{ github.action_path }}\tools\asset_packer.exe" "${{ inputs.input }}" -c "$configPath" "${{ inputs.output }}"
       shell: pwsh
