@@ -1,0 +1,20 @@
+name: Starbound Asset Packer
+description: Packs assets using asset_packer.exe
+
+inputs:
+  input:
+    description: 'Input folder'
+    required: true
+  config:
+    description: 'Config file'
+    required: true
+  output:
+    description: 'Output file name'
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        tools/asset_packer.exe ${{ inputs.input }} -c ${{ inputs.config }} ${{ inputs.output }}
+      shell: cmd
