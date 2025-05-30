@@ -4,10 +4,12 @@ description: Packs assets using asset_packer.exe
 inputs:
   input:
     description: 'Input folder'
-    required: true
+    required: false
+    default: .
   config:
     description: 'Config file'
-    required: true
+    required: false
+    default: 'tools/packing.config'
   output:
     description: 'Output file name'
     required: true
