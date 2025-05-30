@@ -6,19 +6,20 @@ This GitHub Action runs a Windows-based asset packer (`asset_packer.exe`) to gen
 
 - 💼 Packs any directory into a `.pak` file using a simple `.exe`
 - ✅ Easy to reuse across multiple repositories
-- 🪟 Runs on `windows-latest`
-
----
-
-## ⚠️ Legal Notice
-
-> **The `asset_packer.exe` tool is the property of [Chucklefish](https://www.chucklefish.org/) and is part of the official Starbound modding tools.**  
-> This GitHub Action does not modify or claim ownership of this executable — it is simply included here for convenience and automation in asset packaging workflows.  
-> Please ensure you comply with the Starbound EULA and modding terms when using this tool.
+- 🖥️ Runs on `windows-latest`
 
 ---
 
 ## 🚀 Usage
+
+### 📥 Inputs
+
+| Name     | Description                    | Required | Default                                          |
+| -------- | ------------------------------ | -------- | ------------------------------------------------ |
+| `input`  | Folder to pack                 | ❌ No     | `.` (current directory)                          |
+| `config` | Path to the configuration file | ❌ No     | [`tools/packing.config`](https://github.com/KrashV/starbound-asset-packer-action/blob/main/tools/packing.config) |
+| `output` | Output `.pak` file name        | ✅ Yes    | *None* (must be provided)                        |
+
 
 ### Example workflow
 
@@ -31,8 +32,17 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Run Asset Packer
-        uses: KrashV/asset-packer-action@v1
+        uses: KrashV/starbound-asset-packer-action@v1
         with:
           input: .
           config: .github/tools/packing.config
-          output: StarCustomChat.pak
+          output: MyMod.pak
+```
+
+---
+
+## ⚠️ Legal Notice
+
+> **The `asset_packer.exe` tool is the property of [Chucklefish](https://www.chucklefish.org/) and is part of the official Starbound modding tools.**  
+> This GitHub Action does not modify or claim ownership of this executable — it is simply included here for convenience and automation in asset packaging workflows.  
+> Please ensure you comply with the Starbound EULA and modding terms when using this tool.
