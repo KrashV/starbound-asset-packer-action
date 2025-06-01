@@ -1,6 +1,6 @@
-# 🧳 Asset Packer Action
+# 🧳 Starbound Asset Packer Action
 
-This GitHub Action runs a Windows-based asset packer (`asset_packer.exe`) to generate `.pak` files from a given folder and config file. It’s useful for packaging assets in projects like game mods or custom content.
+This GitHub Action runs a Windows-based asset packer (`asset_packer.exe`) to generate `.pak` files from a given folder and config file. It’s useful for packaging Starbound assets to later redistribute or create a GitHub release.
 
 ## 📦 Features
 
